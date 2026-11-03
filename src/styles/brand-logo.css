@@ -1,0 +1,52 @@
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.brand-logo-image {
+  display: block;
+  width: 76px;
+  height: 76px;
+  border-radius: 13px;
+  object-fit: contain;
+  box-shadow: 0 5px 16px rgba(51, 69, 26, 0.12);
+}
+
+.brand-mark.compact .brand-logo-image {
+  width: 68px;
+  height: 68px;
+}
+
+.site-footer .brand-logo-image {
+  width: 104px;
+  height: 104px;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+}
+
+.loader-brand {
+  display: block;
+  animation: loader-rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.loader-logo-image {
+  display: block;
+  width: 118px;
+  height: 118px;
+  border-radius: 20px;
+  object-fit: contain;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 680px) {
+  .brand-mark.compact .brand-logo-image {
+    width: 62px;
+    height: 62px;
+  }
+
+  .site-footer .brand-logo-image {
+    width: 92px;
+    height: 92px;
+  }
+}

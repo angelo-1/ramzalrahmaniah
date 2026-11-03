@@ -1,0 +1,211 @@
+.home-page .why-section {
+  position: relative;
+  overflow: hidden;
+  background: #f3f1e8;
+  isolation: isolate;
+}
+
+.home-page .why-section::before {
+  content: 'WHY RAMZ';
+  position: absolute;
+  top: 36px;
+  right: 7%;
+  color: rgba(82, 101, 43, 0.07);
+  font-size: clamp(48px, 8vw, 122px);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.home-page .why-grid {
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 76px;
+}
+
+.home-page .why-visual {
+  min-height: 430px;
+  border-radius: 28px;
+  background: var(--olive-dark);
+  box-shadow: 16px 16px 0 rgba(169, 151, 98, 0.28), 0 24px 46px rgba(51, 69, 26, 0.16);
+}
+
+.home-page .why-visual::before {
+  width: 430px;
+  height: 430px;
+  top: -155px;
+  left: -145px;
+  border-color: rgba(230, 197, 76, 0.3);
+  box-shadow: 0 0 0 35px rgba(230, 197, 76, 0.04), 0 0 0 70px rgba(230, 197, 76, 0.025);
+  animation: why-orbit 16s linear infinite;
+}
+
+.home-page .why-visual::after {
+  width: 280px;
+  height: 280px;
+  right: -110px;
+  bottom: -125px;
+  border-color: rgba(255, 255, 255, 0.17);
+}
+
+.home-page .why-card {
+  right: 27px;
+  bottom: 27px;
+  width: min(250px, calc(100% - 54px));
+  padding: 25px;
+  border: 1px solid rgba(230, 197, 76, 0.55);
+  border-radius: 18px;
+  background: rgba(250, 249, 245, 0.97);
+  color: var(--olive-dark);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.2);
+  animation: why-card-float 4s ease-in-out infinite;
+}
+
+.home-page .why-card svg {
+  color: var(--olive);
+}
+
+.home-page .why-card span {
+  color: var(--gold);
+  font-size: 44px;
+}
+
+.home-page .why-card strong {
+  color: var(--olive-dark);
+  font-size: 15px;
+}
+
+.home-page .why-card p {
+  color: #707466;
+  line-height: 1.7;
+}
+
+.home-page .why-section .section-title {
+  margin-bottom: 30px;
+}
+
+.home-page .why-section .section-title h2 {
+  max-width: 520px;
+  font-size: clamp(38px, 4.5vw, 58px);
+  line-height: 1.04;
+}
+
+.home-page .why-section .section-title p {
+  max-width: 480px;
+}
+
+.home-page .why-section .value-list {
+  display: grid;
+  gap: 11px;
+  border-top: 0;
+}
+
+.home-page .why-section .value-list > div {
+  position: relative;
+  gap: 18px;
+  min-height: 84px;
+  align-items: flex-start;
+  padding: 18px 20px;
+  border: 1px solid rgba(82, 101, 43, 0.13);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.66);
+  transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-page .why-section .value-list > div:hover {
+  border-color: rgba(169, 151, 98, 0.58);
+  background: #fff;
+  box-shadow: 0 12px 24px rgba(51, 69, 26, 0.09);
+  transform: translateX(7px);
+}
+
+.home-page .why-section .value-list b {
+  display: grid;
+  width: 33px;
+  height: 33px;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--olive);
+  color: var(--yellow);
+  font-size: 10px;
+}
+
+.home-page .why-section .value-list strong {
+  font-size: 15px;
+}
+
+.home-page .why-section .value-list small {
+  max-width: 400px;
+  line-height: 1.65;
+}
+
+.home-page .why-section.motion-ready .value-list > div {
+  opacity: 0;
+  transform: translateX(22px);
+}
+
+.home-page .why-section.motion-visible .value-list > div {
+  opacity: 1;
+  transform: none;
+}
+
+.home-page .why-section.motion-visible .value-list > div:nth-child(2) {
+  transition-delay: 100ms;
+}
+
+.home-page .why-section.motion-visible .value-list > div:nth-child(3) {
+  transition-delay: 200ms;
+}
+
+@keyframes why-orbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes why-card-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@media (max-width: 900px) {
+  .home-page .why-grid {
+    gap: 55px;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-page .why-section::before {
+    top: 24px;
+    right: -20px;
+    font-size: 48px;
+  }
+
+  .home-page .why-visual {
+    min-height: 340px;
+    border-radius: 22px;
+    box-shadow: 10px 10px 0 rgba(169, 151, 98, 0.28), 0 18px 34px rgba(51, 69, 26, 0.14);
+  }
+
+  .home-page .why-card {
+    right: 18px;
+    bottom: 18px;
+    padding: 20px;
+    width: min(235px, calc(100% - 36px));
+  }
+
+  .home-page .why-section .value-list > div:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .why-visual::before,
+  .home-page .why-card {
+    animation: none;
+  }
+
+  .home-page .why-section .value-list > div {
+    transition: none;
+  }
+}

@@ -1,0 +1,194 @@
+.home-page .services-overview {
+  position: relative;
+  overflow: hidden;
+  background: #f6f4ec;
+  isolation: isolate;
+}
+
+.home-page .services-overview::before,
+.home-page .services-overview::after {
+  content: '';
+  position: absolute;
+  border: 1px solid rgba(169, 151, 98, 0.22);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.home-page .services-overview::before {
+  width: 430px;
+  height: 430px;
+  top: -210px;
+  right: -130px;
+  box-shadow: 0 0 0 42px rgba(169, 151, 98, 0.045), 0 0 0 84px rgba(169, 151, 98, 0.025);
+}
+
+.home-page .services-overview::after {
+  width: 230px;
+  height: 230px;
+  left: -145px;
+  bottom: -140px;
+  border-color: rgba(82, 101, 43, 0.14);
+}
+
+.home-page .services-overview .section-title {
+  position: relative;
+  max-width: 760px;
+  margin-bottom: 38px;
+}
+
+.home-page .services-overview .section-title::after {
+  content: '06 SERVICES';
+  position: absolute;
+  top: 5px;
+  right: 0;
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.home-page .services-overview .section-title h2 {
+  max-width: 620px;
+  font-size: clamp(38px, 4.4vw, 60px);
+  line-height: 1.04;
+  margin-top: 15px;
+}
+
+.home-page .services-overview .section-title p {
+  max-width: 510px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.home-page .services-overview .service-grid {
+  counter-reset: service;
+  gap: 18px;
+}
+
+.home-page .services-overview .service-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 248px;
+  padding: 25px;
+  border: 1px solid rgba(82, 101, 43, 0.13);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 10px 24px rgba(51, 69, 26, 0.045);
+  counter-increment: service;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.home-page .services-overview .service-card::before {
+  content: counter(service, decimal-leading-zero);
+  position: absolute;
+  top: 21px;
+  right: 24px;
+  color: rgba(169, 151, 98, 0.42);
+  font-family: var(--serif);
+  font-size: 18px;
+}
+
+.home-page .services-overview .service-card::after {
+  content: '';
+  position: absolute;
+  width: 92px;
+  height: 92px;
+  right: -40px;
+  bottom: -44px;
+  border: 1px solid rgba(169, 151, 98, 0.18);
+  border-radius: 50%;
+  transition: transform 0.45s ease, border-color 0.45s ease;
+}
+
+.home-page .services-overview .service-card:hover {
+  transform: translateY(-9px);
+  border-color: rgba(169, 151, 98, 0.58);
+  box-shadow: 0 22px 42px rgba(51, 69, 26, 0.13);
+}
+
+.home-page .services-overview .service-card:hover::after {
+  transform: scale(1.7);
+  border-color: rgba(169, 151, 98, 0.32);
+}
+
+.home-page .services-overview .service-icon {
+  width: 49px;
+  height: 49px;
+  margin-bottom: 23px;
+  border: 1px solid rgba(169, 151, 98, 0.24);
+  border-radius: 15px;
+  background: #eef1e7;
+  color: var(--olive);
+  transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease;
+}
+
+.home-page .services-overview .service-card:hover .service-icon {
+  transform: rotate(-7deg) scale(1.08);
+  background: var(--olive);
+  color: var(--yellow);
+}
+
+.home-page .services-overview .service-card-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: calc(100% - 72px);
+  flex-direction: column;
+}
+
+.home-page .services-overview .service-card h3 {
+  max-width: 190px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.home-page .services-overview .service-card p {
+  max-width: 250px;
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+
+.home-page .services-overview .service-card .text-link {
+  margin-top: auto;
+}
+
+.home-page .services-overview .center-action {
+  margin-top: 39px;
+}
+
+@media (max-width: 900px) {
+  .home-page .services-overview .section-title::after {
+    position: static;
+    display: block;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-page .services-overview .section-title {
+    margin-bottom: 28px;
+  }
+
+  .home-page .services-overview .section-title h2 {
+    font-size: 39px;
+  }
+
+  .home-page .services-overview .service-grid {
+    gap: 14px;
+  }
+
+  .home-page .services-overview .service-card {
+    min-height: 224px;
+    padding: 21px;
+    border-radius: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .services-overview .service-card,
+  .home-page .services-overview .service-icon,
+  .home-page .services-overview .service-card::after {
+    transition: none;
+  }
+}

@@ -1,0 +1,188 @@
+.home-page .about-preview {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  isolation: isolate;
+}
+
+.home-page .about-preview::before {
+  content: 'RAMZ';
+  position: absolute;
+  bottom: -42px;
+  left: 3%;
+  color: rgba(169, 151, 98, 0.08);
+  font-family: var(--serif);
+  font-size: clamp(100px, 18vw, 280px);
+  font-weight: 600;
+  line-height: 0.8;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.home-page .about-preview-inner {
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 86px;
+}
+
+.home-page .about-preview-inner > div:first-child {
+  position: relative;
+  padding: 16px 0 16px 29px;
+  border-left: 2px solid var(--yellow);
+}
+
+.home-page .about-preview-inner > div:first-child::before {
+  content: '02';
+  position: absolute;
+  top: -18px;
+  left: -15px;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--olive);
+  color: var(--yellow);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.home-page .about-preview .section-title {
+  margin-bottom: 27px;
+}
+
+.home-page .about-preview .section-title h2 {
+  max-width: 560px;
+  font-size: clamp(38px, 4.6vw, 60px);
+  line-height: 1.04;
+}
+
+.home-page .about-preview .section-title p {
+  max-width: 530px;
+  line-height: 1.85;
+}
+
+.home-page .about-preview .text-link {
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--gold);
+  transition: color 0.25s ease, gap 0.25s ease;
+}
+
+.home-page .about-preview .text-link:hover {
+  gap: 12px;
+  color: var(--gold);
+}
+
+.home-page .about-preview .about-quote {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 42px;
+  border: 0;
+  border-radius: 24px 24px 24px 4px;
+  background: var(--olive-dark);
+  box-shadow: 14px 14px 0 rgba(169, 151, 98, 0.28), 0 22px 42px rgba(51, 69, 26, 0.13);
+}
+
+.home-page .about-preview .about-quote::before,
+.home-page .about-preview .about-quote::after {
+  content: '';
+  position: absolute;
+  border: 1px solid rgba(230, 197, 76, 0.28);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.home-page .about-preview .about-quote::before {
+  width: 280px;
+  height: 280px;
+  top: -150px;
+  right: -110px;
+}
+
+.home-page .about-preview .about-quote::after {
+  width: 150px;
+  height: 150px;
+  bottom: -85px;
+  left: -65px;
+  border-color: rgba(255, 255, 255, 0.13);
+}
+
+.home-page .about-preview .about-quote > * {
+  position: relative;
+  z-index: 1;
+}
+
+.home-page .about-preview .about-quote span {
+  color: var(--yellow);
+  font-size: 76px;
+  line-height: 0.45;
+}
+
+.home-page .about-preview .about-quote p {
+  max-width: 380px;
+  margin: 21px 0 20px;
+  color: #fff;
+  font-size: clamp(25px, 3vw, 35px);
+  line-height: 1.2;
+}
+
+.home-page .about-preview .about-quote small {
+  color: #cbd3bf;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.home-page .about-preview.motion-ready .about-preview-inner > div:first-child,
+.home-page .about-preview.motion-ready .about-quote {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.home-page .about-preview.motion-visible .about-preview-inner > div:first-child,
+.home-page .about-preview.motion-visible .about-quote {
+  opacity: 1;
+  transform: none;
+}
+
+.home-page .about-preview.motion-visible .about-quote {
+  transition-delay: 120ms;
+}
+
+@media (max-width: 900px) {
+  .home-page .about-preview-inner {
+    gap: 56px;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-page .about-preview::before {
+    bottom: -10px;
+    left: 5%;
+    font-size: 100px;
+  }
+
+  .home-page .about-preview-inner {
+    gap: 42px;
+  }
+
+  .home-page .about-preview-inner > div:first-child {
+    padding: 12px 0 12px 22px;
+  }
+
+  .home-page .about-preview .about-quote {
+    min-height: 260px;
+    padding: 32px 27px;
+    border-radius: 20px 20px 20px 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .about-preview.motion-ready .about-preview-inner > div:first-child,
+  .home-page .about-preview.motion-ready .about-quote {
+    transition: none;
+  }
+}
