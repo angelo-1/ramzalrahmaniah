@@ -28,6 +28,13 @@ docker compose up -d --build
 
 Visit `http://localhost:8080`.
 
+## GitHub Pages demo
+
+The site deploys automatically to GitHub Pages when changes are pushed to `main`.
+In the repository settings, set **Pages > Build and deployment > Source** to **GitHub Actions**.
+After the first successful workflow run, the site is available at
+`https://angelo-1.github.io/ramzalrahmaniah/`.
+
 ## Notes
 
 - The contact form is frontend-only and opens a pre-filled WhatsApp message. No form data is stored by this site.
@@ -35,6 +42,3 @@ Visit `http://localhost:8080`.
 - English and Arabic content live in `src/locales/`; the selected language is retained in local storage and updates the document direction for RTL Arabic.
 - Replace the placeholder production domain in `public/robots.txt` and `public/sitemap.xml` before deployment.
 
-## Future CI/CD
-
-The project is structured for a GitHub Actions pipeline that can run `npm ci`, `npm run lint`, `npm run build`, and `docker build` before publishing an image to a registry.
