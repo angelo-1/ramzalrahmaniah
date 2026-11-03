@@ -39,6 +39,23 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
+/* Keep slow secondary image requests from blocking the first usable view. */
+.loading-screen.loading-visible {
+  animation: loading-fast-hide 0.55s ease 0.35s forwards;
+}
+
+@keyframes loading-fast-hide {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
 @media (max-width: 680px) {
   .brand-mark.compact .brand-logo-image {
     width: 62px;
