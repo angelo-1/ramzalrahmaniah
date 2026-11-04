@@ -111,5 +111,14 @@ html[dir=rtl] .hero-stamp{right:auto;left:-8px}
 html[dir=rtl] .why-card{right:auto;left:16px}
 html[dir=rtl] .footer-contact a,html[dir=rtl] .footer-contact span{flex-direction:row-reverse;justify-content:flex-end}
 html[dir=rtl] .text-link:hover svg{transform:rotate(180deg) translateX(-4px)}
+@media (max-width:680px){
+  .home-page .why-grid,.home-page .about-preview-inner{grid-template-columns:1fr;gap:34px}
+  .home-page .why-visual{width:100%;max-width:none;min-height:270px}
+  .home-page .why-card{right:16px;bottom:16px;width:min(205px,calc(100% - 32px));padding:18px}
+  .home-page .why-section .section-title h2,.home-page .about-preview .section-title h2{font-size:clamp(32px,9vw,42px);max-width:100%}
+  .home-page .about-preview-inner > div:first-child{padding-inline-start:22px}
+  .home-page .about-preview .about-quote{width:100%;min-height:230px;padding:28px 24px}
+  .home-page .about-preview .about-quote p{font-size:clamp(24px,7vw,32px)}
+}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important}}
 

@@ -9,7 +9,7 @@ import './styles/spacing.css';
 import './styles/services-showcase.css';
 import './styles/why-showcase.css';
 import './styles/about-showcase.css';
-import './styles/brand-logo.css';
+import './styles/brand-logo.css'; import './styles/responsive.css';
 
 window.setTimeout(() => {
   document.documentElement.style.setProperty('--hero-image-two', "linear-gradient(140deg,rgba(230,197,76,.2),transparent 35%,rgba(34,47,18,.28)),url('/assets/office-support.png')");
