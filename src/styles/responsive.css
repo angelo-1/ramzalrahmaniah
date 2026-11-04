@@ -1,0 +1,115 @@
+/* Responsive system: keeps the existing visual language coherent across widths. */
+:root{
+  --content-max:1320px;
+  --page-gutter:clamp(18px,3.2vw,48px);
+  --section-space:clamp(72px,7vw,112px);
+}
+body{font-size:clamp(15px,.18vw + 13px,17px);overflow-x:hidden}
+.container{width:min(var(--content-max),calc(100% - (var(--page-gutter) * 2)))}
+.site-header{height:clamp(70px,5.4vw,86px)}
+.nav-links{gap:clamp(16px,2.1vw,32px)}
+.nav-links>a{font-size:clamp(13px,.2vw + 11px,15px)}
+.button{min-height:44px;padding:clamp(11px,.8vw,14px) clamp(16px,1.35vw,22px);font-size:clamp(13px,.18vw + 11px,15px)}
+.hero,.page-hero{padding-block:clamp(64px,7vw,104px)}
+.hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);gap:clamp(42px,6vw,92px)}
+.hero h1,.page-hero h1{font-size:clamp(44px,4.25vw,72px);max-width:12ch}
+.hero-subtitle,.page-hero p{font-size:clamp(16px,.28vw + 13px,19px)}
+.section{padding-block:var(--section-space)}
+.section-title h2{font-size:clamp(34px,3.1vw,52px)}
+.section-title p{font-size:clamp(15px,.14vw + 13px,17px);line-height:1.75}
+.service-grid,.service-grid-large{gap:clamp(14px,1.7vw,24px)}
+.service-card{padding:clamp(20px,1.8vw,28px);min-height:210px}
+.service-card h3{font-size:clamp(16px,.18vw + 13px,18px)}
+.service-card p{font-size:clamp(13px,.14vw + 11px,15px)}
+.why-grid,.story-grid,.contact-grid{gap:clamp(48px,7vw,108px)}
+.why-visual{min-height:clamp(300px,30vw,430px)}
+.about-quote p{font-size:clamp(24px,2vw,31px)}
+.cta-band{padding-block:clamp(60px,6vw,88px)}
+.cta-band h2{font-size:clamp(34px,3vw,48px)}
+.enquiry-form{padding:clamp(24px,3vw,44px)}
+.enquiry-form h2{font-size:clamp(28px,2.1vw,36px)}
+.footer-grid{gap:clamp(28px,4vw,60px)}
+@media (min-width:1536px){:root{--content-max:1400px}.hero-grid{gap:100px}.service-card{min-height:225px}}
+@media (max-width:1100px){.hero-grid{gap:42px}.highlights-grid{gap:18px}.highlight-intro{padding-inline-end:18px}.why-grid,.story-grid,.contact-grid{gap:46px}}
+@media (max-width:900px){
+  .nav-links{gap:12px}
+  .hero-grid,.why-grid,.story-grid,.contact-grid{grid-template-columns:minmax(0,1fr);gap:48px}
+  .hero-copy{max-width:760px}
+  .hero h1,.page-hero h1{max-width:15ch}
+  .hero-visual{max-width:720px;width:100%;margin-inline:auto}
+  .why-visual{max-width:680px}
+  .contact-grid{max-width:760px;margin-inline:auto}
+  .service-grid,.service-grid-large{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:680px){
+  :root{--page-gutter:16px;--section-space:clamp(58px,16vw,78px)}
+  .site-header{height:68px}
+  .brand-copy strong{font-size:clamp(14px,4vw,17px)}
+  .brand-copy small{font-size:7px}
+  .brand-emblem{width:39px;height:39px}
+  .nav-links{top:68px;padding:14px var(--page-gutter) 20px;max-height:calc(100dvh - 68px);overflow-y:auto}
+  .nav-links>a{font-size:15px;padding:13px 0}
+  .language-switcher button{min-width:44px;min-height:40px}
+  .hero,.home-page .hero{padding-block:clamp(52px,14vw,76px) clamp(72px,18vw,96px)}
+  .hero-grid{gap:38px}
+  .hero h1,.home-page .hero h1,.page-hero h1{font-size:clamp(38px,11vw,52px);line-height:1.08;max-width:100%;letter-spacing:-.035em}
+  .hero-subtitle,.page-hero p{font-size:16px;line-height:1.75}
+  .hero-actions,.cta-actions{gap:10px}
+  .hero-actions .button,.cta-actions .button{flex:1 1 170px}
+  .hero-visual{margin-inline:8px;padding:9px}
+  .hero-visual img{aspect-ratio:1.08}
+  .hero-float-card{left:-8px;bottom:12px;padding:12px 14px;max-width:calc(100% - 12px)}
+  .hero-stamp{right:-8px;top:12px;width:62px;height:62px;font-size:10px}
+  .home-page .highlights{margin-top:-18px}
+  .highlights-grid{grid-template-columns:1fr 1fr;gap:0}
+  .highlight-intro{padding:20px 16px}
+  .highlight-item{padding:17px 12px!important;min-width:0}
+  .highlight-item strong,.highlight-item span{font-size:12px;overflow-wrap:anywhere}
+  .section-title{margin-bottom:28px}
+  .section-title h2{font-size:clamp(32px,9vw,42px)}
+  .service-grid,.service-grid-large{grid-template-columns:1fr}
+  .service-card{min-height:0;padding:20px}
+  .why-visual{min-height:270px}
+  .why-card{right:16px;bottom:16px;width:min(205px,calc(100% - 32px))}
+  .story-visual{height:clamp(280px,70vw,380px)}
+  .values-grid h3{font-size:23px}
+  .page-hero{padding-block:56px 62px}
+  .page-hero:after{width:260px;height:260px;right:-100px;top:-130px}
+  .form-row{grid-template-columns:1fr;gap:0}
+  .enquiry-form{padding:24px 18px}
+  .enquiry-form input,.enquiry-form select,.enquiry-form textarea{font-size:16px;min-height:46px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px 20px}
+  .footer-grid>div:first-child{grid-column:1/-1}
+  .footer-bottom{font-size:11px}
+  .whatsapp-float{width:50px;height:50px;right:14px;bottom:max(14px,env(safe-area-inset-bottom))}
+}
+@media (max-width:430px){
+  .container{width:calc(100% - 28px)}
+  .hero-actions .button,.cta-actions .button{flex-basis:100%;width:100%}
+  .home-page .hero h1:after{margin-top:22px}
+  .hero-note{font-size:11px}
+  .hero-float-card{font-size:11px}
+  .hero-float-card small{font-size:10px}
+  .highlights-grid{grid-template-columns:1fr}
+  .highlight-intro{grid-column:auto}
+  .highlight-item{border-top:1px solid #e5e5dd}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-grid>div:first-child{grid-column:auto}
+}
+@media (max-width:375px){
+  .brand-copy em{display:none}
+  .brand-copy strong{font-size:13px;letter-spacing:.12em}
+  .hero h1,.home-page .hero h1,.page-hero h1{font-size:36px}
+  .section-title h2{font-size:31px}
+  .service-card{gap:13px}
+}
+html[dir=rtl] .nav-links,html[dir=rtl] .language-switcher{direction:rtl}
+html[dir=rtl] .hero-copy:before{text-align:right}
+html[dir=rtl] .hero-float-card{left:auto;right:-8px}
+html[dir=rtl] .hero-stamp{right:auto;left:-8px}
+html[dir=rtl] .why-card{right:auto;left:16px}
+html[dir=rtl] .footer-contact a,html[dir=rtl] .footer-contact span{flex-direction:row-reverse;justify-content:flex-end}
+html[dir=rtl] .text-link:hover svg{transform:rotate(180deg) translateX(-4px)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important}}
+
