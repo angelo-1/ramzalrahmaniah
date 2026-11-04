@@ -1,10 +1,15 @@
 import './GovernmentLogosCarousel.css';
+import { useLanguage } from '../context/LanguageContext';
 
 type GovernmentLogo = {
   name: string;
   image?: string;
   abbreviation?: string;
 };
+
+const assetPath = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+
+
 
 const governmentLogos: GovernmentLogo[] = [
   // { name: 'UAE Government', abbreviation: 'UAE\nGovernment' },
@@ -21,6 +26,7 @@ const governmentLogos: GovernmentLogo[] = [
   { name: 'Ministry of Interior', image: '/assets/service-logos/ministeryofinterior.png' },
   { name: 'Government of Sharjah', image: '/assets/service-logos/govermentofsharjah.png' },
   { name: 'Sharjah Municipality', image: '/assets/service-logos/sharjamuncipality.png' },
+  { name: 'Visa', image: '/assets/service-logos/visa.png' },
 ];
 
 function LogoItem({ logo, duplicate = false }: { logo: GovernmentLogo; duplicate?: boolean }) {
@@ -28,7 +34,7 @@ function LogoItem({ logo, duplicate = false }: { logo: GovernmentLogo; duplicate
     <li className="government-logos-carousel__item" aria-hidden={duplicate || undefined}>
       <div className="government-logos-carousel__circle">
         {logo.image ? (
-          <img src={logo.image} alt={duplicate ? '' : logo.name} width="72" height="72" loading="lazy" />
+          <img src={assetPath(logo.image)} alt={duplicate ? '' : logo.name} width="72" height="72" loading={duplicate ? 'eager' : 'lazy'} />
         ) : (
           <span className="government-logos-carousel__text" aria-label={logo.name}>
             {logo.abbreviation?.split('\n').map((line) => (
@@ -43,11 +49,13 @@ function LogoItem({ logo, duplicate = false }: { logo: GovernmentLogo; duplicate
 }
 
 export function GovernmentLogosCarousel() {
+  const { t } = useLanguage();
+
   return (
     <section className="government-logos-carousel" aria-labelledby="government-logos-title">
       <div className="government-logos-carousel__container">
-        <p className="government-logos-carousel__eyebrow">We Provide</p>
-        <h2 id="government-logos-title">All Government Services</h2>
+        <p className="government-logos-carousel__eyebrow">{t.home.governmentEyebrow}</p>
+        <h2 id="government-logos-title">{t.home.governmentTitle}</h2>
       </div>
 
       <div className="government-logos-carousel__viewport">

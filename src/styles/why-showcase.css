@@ -209,3 +209,4 @@
     transition: none;
   }
 }
+html[dir='rtl'] .home-page .why-section::before{content:'لماذا رمز';}

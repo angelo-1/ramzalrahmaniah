@@ -40,7 +40,9 @@
 .government-logos-carousel__track {
   display: flex;
   width: max-content;
+  direction: ltr;
   animation: government-logos-scroll 38s linear infinite;
+  will-change: transform;
 }
 
 .government-logos-carousel__viewport:hover .government-logos-carousel__track,
@@ -52,6 +54,7 @@
   display: flex;
   flex: 0 0 auto;
   align-items: flex-start;
+  direction: ltr;
   gap: clamp(1rem, 2vw, 2.25rem);
   margin: 0;
   padding: 0 clamp(0.75rem, 1.5vw, 1.5rem);
@@ -151,4 +154,9 @@ html[dir='rtl'] .government-logos-carousel__track {
   .government-logos-carousel__list:last-child {
     display: none;
   }
+}
+
+/* Keep the moving lane's geometry stable when the page itself is RTL. */
+.government-logos-carousel__viewport {
+  direction: ltr;
 }
