@@ -121,4 +121,7 @@ html[dir=rtl] .text-link:hover svg{transform:rotate(180deg) translateX(-4px)}
   .home-page .about-preview .about-quote p{font-size:clamp(24px,7vw,32px)}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important}}
+.loading-visible{opacity:1!important;visibility:visible!important}
+.loading-hidden{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+.motion-visible{opacity:1!important;transform:none!important}
 
