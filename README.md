@@ -2,6 +2,10 @@
 
 Professional bilingual business website for Ramz Al Rahmaniah Typing & Document Copying, built with React, TypeScript and Vite.
 
+## Agent guidance
+
+Repository instructions are in [AGENTS.md](./AGENTS.md). Reusable project skills are in [skills/](./skills/).
+
 ## Development
 
 ```bash
