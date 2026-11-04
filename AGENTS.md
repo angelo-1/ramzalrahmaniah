@@ -18,6 +18,7 @@ Ramz Al Rahmaniah is a bilingual React, TypeScript and Vite website for a typing
 - Use React Router for navigation and preserve the existing HashRouter/GitHub Pages compatibility.
 - Keep English as the default language. Arabic must update `dir="rtl"`, alignment and layout behavior, not only translated strings.
 - Use the existing brand palette: warm white, olive green, muted gold and golden yellow.
+- Preserve the existing font system: DM Sans for English body and UI text, Cairo for Arabic text, and Playfair Display for serif headings and display copy.
 - Use semantic HTML, accessible labels, keyboard-friendly controls and meaningful image alt text.
 
 ## Performance and UX
