@@ -480,7 +480,7 @@ export function GovernmentLogosCarousel() {
       </div>
 
       {/* Navigation controls */}
-      <div
+      {/* <div
         className="government-logos-carousel__controls"
         dir="ltr"
       >
@@ -509,7 +509,7 @@ export function GovernmentLogosCarousel() {
         >
           <span aria-hidden="true">→</span>
         </button>
-      </div>
+      </div> */}
     </section>
   );
 }
