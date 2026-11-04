@@ -29,7 +29,7 @@ const governmentLogos: GovernmentLogo[] = [
   },
   {
     name: 'Amer',
-    image: '/assets/service-logos/amer-seeklogo.png',
+    image: '/assets/service-logos/amer.png',
   },
   {
     name: 'RTA Dubai',
