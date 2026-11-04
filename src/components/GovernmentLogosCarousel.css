@@ -1,6 +1,9 @@
+
 .government-logos-carousel {
+  width: 100%;
   overflow: hidden;
-  padding: clamp(3rem, 5vw, 4.5rem) 0 clamp(2.5rem, 4vw, 3.75rem);
+  padding: clamp(3rem, 5vw, 4.5rem) 0
+    clamp(2.5rem, 4vw, 3.75rem);
   background: #FAF9F5;
 }
 
@@ -29,37 +32,68 @@
   line-height: 1.08;
 }
 
+/* Viewport */
+
 .government-logos-carousel__viewport {
   width: 100%;
   margin-top: clamp(2rem, 4vw, 3rem);
   overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  direction: ltr;
+
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+
+  /* Allow vertical page scrolling on touch devices */
+  touch-action: pan-y;
+
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
 }
+
+.government-logos-carousel__viewport:active {
+  cursor: grabbing;
+}
+
+/* Track */
 
 .government-logos-carousel__track {
   display: flex;
+  flex-wrap: nowrap;
   width: max-content;
   direction: ltr;
-  animation: government-logos-scroll 38s linear infinite;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
-.government-logos-carousel__viewport:hover .government-logos-carousel__track,
-.government-logos-carousel__viewport:focus-within .government-logos-carousel__track {
-  animation-play-state: paused;
-}
+/* Logo list */
 
 .government-logos-carousel__list {
   display: flex;
   flex: 0 0 auto;
-  align-items: flex-start;
+  align-items: center;
   direction: ltr;
   gap: clamp(1rem, 2vw, 2.25rem);
   margin: 0;
   padding: 0 clamp(0.75rem, 1.5vw, 1.5rem);
   list-style: none;
 }
+
+/* Logo item */
 
 .government-logos-carousel__item {
   display: flex;
@@ -70,6 +104,8 @@
   gap: 0.55rem;
 }
 
+/* Logo circle */
+
 .government-logos-carousel__circle {
   display: grid;
   width: clamp(5.75rem, 8vw, 7.25rem);
@@ -78,13 +114,23 @@
   border: 1px solid rgba(169, 151, 98, 0.78);
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 0.75rem 1.8rem rgba(82, 101, 43, 0.09);
-  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+
+  box-shadow: 0 0.75rem 1.8rem
+    rgba(82, 101, 43, 0.09);
+
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
 }
 
-.government-logos-carousel__item:hover .government-logos-carousel__circle {
+.government-logos-carousel__item:hover
+.government-logos-carousel__circle {
   border-color: var(--yellow, #e6c54c);
-  box-shadow: 0 1rem 2.25rem rgba(82, 101, 43, 0.16);
+
+  box-shadow: 0 1rem 2.25rem
+    rgba(82, 101, 43, 0.16);
+
   transform: translateY(-0.3rem);
 }
 
@@ -93,6 +139,8 @@
   width: 62%;
   height: 62%;
   object-fit: contain;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
 
 .government-logos-carousel__text {
@@ -105,31 +153,64 @@
   text-align: center;
 }
 
-.government-logos-carousel__label {
+/* Navigation */
+
+.government-logos-carousel__controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+}
+
+.government-logos-carousel__control {
+  display: inline-grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid rgba(169, 151, 98, 0.8);
+  border-radius: 50%;
+  background: #fff;
   color: #52652B;
-  font-size: 0.68rem;
-  line-height: 1.25;
-  text-align: center;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
 }
 
-@keyframes government-logos-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+.government-logos-carousel__control:hover {
+  border-color: var(--yellow, #e6c54c);
+  background: var(--yellow, #e6c54c);
+  transform: translateY(-0.15rem);
 }
 
-html[dir='rtl'] .government-logos-carousel__track {
-  animation-name: government-logos-scroll-rtl;
+.government-logos-carousel__control:focus-visible {
+  outline: 3px solid rgba(230, 197, 76, 0.55);
+  outline-offset: 3px;
 }
 
-@keyframes government-logos-scroll-rtl {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
-}
+/* Mobile */
 
 @media (max-width: 680px) {
   .government-logos-carousel__viewport {
-    mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 4%,
+      #000 96%,
+      transparent
+    );
+
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 4%,
+      #000 96%,
+      transparent
+    );
   }
 
   .government-logos-carousel__list {
@@ -146,17 +227,11 @@ html[dir='rtl'] .government-logos-carousel__track {
   }
 }
 
+/* Accessibility */
+
 @media (prefers-reduced-motion: reduce) {
-  .government-logos-carousel__track {
-    animation: none;
+  .government-logos-carousel__circle,
+  .government-logos-carousel__control {
+    transition: none;
   }
-
-  .government-logos-carousel__list:last-child {
-    display: none;
-  }
-}
-
-/* Keep the moving lane's geometry stable when the page itself is RTL. */
-.government-logos-carousel__viewport {
-  direction: ltr;
 }
