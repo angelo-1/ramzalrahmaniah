@@ -24,10 +24,25 @@
 }
 
 .home-page .why-visual {
+  position: relative;
   min-height: 430px;
+  overflow: hidden;
+  padding: 11px;
   border-radius: 28px;
   background: var(--olive-dark);
   box-shadow: 16px 16px 0 rgba(169, 151, 98, 0.28), 0 24px 46px rgba(51, 69, 26, 0.16);
+}
+
+.home-page .why-visual img {
+  position: absolute;
+  inset: 11px;
+  z-index: 1;
+  width: calc(100% - 22px);
+  height: calc(100% - 22px);
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center 48%;
+  animation: why-photo-reveal 800ms ease-out both;
 }
 
 .home-page .why-visual::before {
@@ -46,38 +61,6 @@
   right: -110px;
   bottom: -125px;
   border-color: rgba(255, 255, 255, 0.17);
-}
-
-.home-page .why-card {
-  right: 27px;
-  bottom: 27px;
-  width: min(250px, calc(100% - 54px));
-  padding: 25px;
-  border: 1px solid rgba(230, 197, 76, 0.55);
-  border-radius: 18px;
-  background: rgba(250, 249, 245, 0.97);
-  color: var(--olive-dark);
-  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.2);
-  animation: why-card-float 4s ease-in-out infinite;
-}
-
-.home-page .why-card svg {
-  color: var(--olive);
-}
-
-.home-page .why-card span {
-  color: var(--gold);
-  font-size: 44px;
-}
-
-.home-page .why-card strong {
-  color: var(--olive-dark);
-  font-size: 15px;
-}
-
-.home-page .why-card p {
-  color: #707466;
-  line-height: 1.7;
 }
 
 .home-page .why-section .section-title {
@@ -163,9 +146,9 @@
   to { transform: rotate(360deg); }
 }
 
-@keyframes why-card-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+@keyframes why-photo-reveal {
+  from { opacity: 0.7; transform: scale(1.025); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @media (max-width: 900px) {
@@ -183,15 +166,16 @@
 
   .home-page .why-visual {
     min-height: 340px;
+    padding: 8px;
     border-radius: 22px;
     box-shadow: 10px 10px 0 rgba(169, 151, 98, 0.28), 0 18px 34px rgba(51, 69, 26, 0.14);
   }
 
-  .home-page .why-card {
-    right: 18px;
-    bottom: 18px;
-    padding: 20px;
-    width: min(235px, calc(100% - 36px));
+  .home-page .why-visual img {
+    inset: 8px;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    border-radius: 16px;
   }
 
   .home-page .why-section .value-list > div:hover {
@@ -201,7 +185,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .home-page .why-visual::before,
-  .home-page .why-card {
+  .home-page .why-visual img {
     animation: none;
   }
 

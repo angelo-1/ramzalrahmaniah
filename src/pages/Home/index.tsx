@@ -4,7 +4,6 @@ import {
   FileCheck2,
   MapPin,
   ShieldCheck,
-  Sparkles,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
@@ -104,12 +103,12 @@ export function Home() {
       <section className="section why-section">
         <div className="container why-grid">
           <div className="why-visual">
-            <div className="why-card">
-              <Sparkles />
-              <span>RA</span>
-              <strong>{t.home.whyCardTitle}</strong>
-              <p>{t.home.whyCardText}</p>
-            </div>
+            <img
+              src={`${import.meta.env.BASE_URL}assets/why-ramz.jpg`}
+              alt="A documentation consultant helping a customer review visa paperwork in a modern Sharjah office"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div>
             <SectionTitle eyebrow={t.home.whyEyebrow} title={t.home.whyTitle} />

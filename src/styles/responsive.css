@@ -72,7 +72,6 @@ body{font-size:clamp(15px,.18vw + 13px,17px);overflow-x:hidden}
   .service-grid,.service-grid-large{grid-template-columns:1fr}
   .service-card{min-height:0;padding:20px}
   .why-visual{min-height:270px}
-  .why-card{right:16px;bottom:16px;width:min(205px,calc(100% - 32px))}
   .story-visual{height:clamp(280px,70vw,380px)}
   .values-grid h3{font-size:23px}
   .page-hero{padding-block:56px 62px}
@@ -109,7 +108,6 @@ html[dir=rtl] .nav-links,html[dir=rtl] .language-switcher{direction:rtl}
 html[dir=rtl] .hero-copy:before{text-align:right}
 html[dir=rtl] .hero-float-card{left:auto;right:-8px}
 html[dir=rtl] .hero-stamp{right:auto;left:-8px}
-html[dir=rtl] .why-card{right:auto;left:16px}
 html[dir=rtl] .footer-contact a,html[dir=rtl] .footer-contact span{flex-direction:row-reverse;justify-content:flex-end}
 html[dir=rtl] .text-link:hover svg{transform:rotate(180deg) translateX(-4px)}
 /* Embedded business location on the contact page. */
@@ -122,7 +120,6 @@ html[dir=rtl] .text-link:hover svg{transform:rotate(180deg) translateX(-4px)}
 @media (max-width:680px){
   .home-page .why-grid,.home-page .about-preview-inner{grid-template-columns:1fr;gap:34px}
   .home-page .why-visual{width:100%;max-width:none;min-height:270px}
-  .home-page .why-card{right:16px;bottom:16px;width:min(205px,calc(100% - 32px));padding:18px}
   .home-page .why-section .section-title h2,.home-page .about-preview .section-title h2{font-size:clamp(32px,9vw,42px);max-width:100%}
   .home-page .about-preview-inner > div:first-child{padding-inline-start:22px}
   .home-page .about-preview .about-quote{width:100%;min-height:230px;padding:28px 24px}
