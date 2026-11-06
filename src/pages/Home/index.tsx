@@ -59,7 +59,7 @@ export function Home() {
       <section className="highlights">
         <div className="container highlights-grid">
           <div className="highlight-intro">
-            <span className="eyebrow">01 — {t.home.highlightsTitle}</span>
+            <span className="eyebrow">{t.home.highlightsTitle}</span>
             <p>{t.home.highlightsText}</p>
           </div>
           <div className="highlight-item">
@@ -161,7 +161,7 @@ export function Home() {
       <section className="cta-band">
         <div className="container cta-inner">
           <div>
-            <span className="eyebrow">04 — {t.common.contactUs}</span>
+            {/* <span className="eyebrow">{t.common.contactUs}</span> */}
             <h2>{t.home.ctaTitle}</h2>
             <p>{t.home.ctaText}</p>
           </div>

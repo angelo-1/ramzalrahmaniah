@@ -1,2 +1,50 @@
-import { useState } from 'react'; import { useLanguage } from '../../context/LanguageContext'; import { services } from '../../data/services'; import { ServiceCard } from '../../components/ServiceCard'; import { SectionTitle } from '../../components/SectionTitle';
-export function Services(){const {t}=useLanguage();const [active,setActive]=useState('all');const cats=[['all','All services'],...Object.entries(t.services.categories)];const visible=active==='all'?services:services.filter(s=>s.category===active);return <div className="services-page"><section className="page-hero"><div className="container page-hero-inner"><span className="eyebrow">{t.services.eyebrow}</span><h1>{t.services.title}</h1><p>{t.services.text}</p></div></section><section className="section services-list"><div className="container"><SectionTitle eyebrow="Browse by need" title="One place for the next step"/><div className="filter-bar">{cats.map(([id,label])=><button className={active===id?'active':''} key={id} onClick={()=>setActive(id)}>{label}</button>)}</div><div className="service-grid service-grid-large">{visible.map(s=><ServiceCard key={s.id} service={s}/>)}</div></div></section></div>}
+import { useState } from "react";
+import { useLanguage } from "../../context/LanguageContext";
+import { services } from "../../data/services";
+import { ServiceCard } from "../../components/ServiceCard";
+import { SectionTitle } from "../../components/SectionTitle";
+export function Services() {
+  const { t } = useLanguage();
+  const [active, setActive] = useState("all");
+  const cats = [
+    ["all", "All services"],
+    ...Object.entries(t.services.categories),
+  ];
+  const visible =
+    active === "all" ? services : services.filter((s) => s.category === active);
+  return (
+    <div className="services-page">
+      <section className="page-hero">
+        <div className="container page-hero-inner">
+          <span className="eyebrow">{t.services.eyebrow}</span>
+          <h1>{t.services.title}</h1>
+          <p>{t.services.text}</p>
+        </div>
+      </section>
+      <section className="section services-list">
+        <div className="container">
+          <SectionTitle
+            eyebrow="Browse by need"
+            title="One place for the next step"
+          />
+          <div className="filter-bar">
+            {cats.map(([id, label]) => (
+              <button
+                className={active === id ? "active" : ""}
+                key={id}
+                onClick={() => setActive(id)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <div className="service-grid service-grid-large">
+            {visible.map((s) => (
+              <ServiceCard key={s.id} service={s} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
