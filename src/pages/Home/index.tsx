@@ -1,17 +1,32 @@
 import {
   ArrowRight,
+  BriefcaseBusiness,
   Clock3,
   FileCheck2,
+  GraduationCap,
+  IdCard,
+  Landmark,
   MapPin,
   ShieldCheck,
+  Stethoscope,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
-import { services } from "../../data/services";
+import type { Service } from "../../data/services";
 import { SectionTitle } from "../../components/SectionTitle";
 import { ServiceCard } from "../../components/ServiceCard";
 import { WhatsAppButton } from "../../components/WhatsAppButton";
 import { GovernmentLogosCarousel } from "../../components/GovernmentLogosCarousel";
+
+const homeServices: Service[] = [
+  { id: "home-residence-visa", category: "home", icon: FileCheck2, en: { title: "Residence Visa Processing", description: "Support with residence visa applications, renewals and paperwork." }, ar: { title: "معالجة تأشيرات الإقامة", description: "دعم في طلبات تأشيرات الإقامة وتجديدها وتجهيز المستندات." } },
+  { id: "home-medical-insurance", category: "home", icon: Stethoscope, en: { title: "Medical Applications & Health Insurance", description: "Assistance with medical applications and health insurance documentation." }, ar: { title: "الطلبات الطبية والتأمين الصحي", description: "مساعدة في الطلبات الطبية ومستندات التأمين الصحي." } },
+  { id: "home-emirates-id", category: "home", icon: IdCard, en: { title: "Emirates ID Services", description: "Help with Emirates ID applications, renewals and required documents." }, ar: { title: "خدمات الهوية الإماراتية", description: "مساعدة في طلبات الهوية الإماراتية وتجديدها والمستندات المطلوبة." } },
+  { id: "home-business-setup", category: "home", icon: BriefcaseBusiness, en: { title: "License and Business Setup", description: "Guidance with business setup and licence documentation." }, ar: { title: "إعداد الأعمال والتراخيص", description: "إرشاد بشأن تأسيس الأعمال ومستندات التراخيص." } },
+  { id: "home-ministry-interior", category: "home", icon: Landmark, en: { title: "Ministry of Interior Transactions", description: "Document support for selected Ministry of Interior transactions." }, ar: { title: "معاملات وزارة الداخلية", description: "دعم المستندات لبعض معاملات وزارة الداخلية." } },
+  { id: "home-equivalency-attestation", category: "home", icon: GraduationCap, en: { title: "Equivalency Certificate & Certificate Attestation", description: "Assistance with certificate equivalency applications and attestation documents." }, ar: { title: "معادلة الشهادات وتصديقها", description: "مساعدة في طلبات معادلة الشهادات ومستندات التصديق." } },
+];
+
 export function Home() {
   const { t } = useLanguage();
   return (
@@ -88,7 +103,7 @@ export function Home() {
             text={t.home.servicesText}
           />
           <div className="service-grid">
-            {services.slice(0, 6).map((s) => (
+            {homeServices.map((s) => (
               <ServiceCard key={s.id} service={s} />
             ))}
           </div>
